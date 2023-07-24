@@ -26,3 +26,4 @@ replay_pid*
 # intellij autism
 *.iml
 .idea/*
+target/*

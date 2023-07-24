@@ -1,4 +1,12 @@
 name: McMessages
 version: '${project.version}'
-main: net.euromc.mcmessages.McMessages
+main: net.euromc.papermessages.MessagesMain
+folia-supported: true
 api-version: '1.19'
+commands:
+  reply:
+    aliases: [r , rpl]
+    description: Reply to a message.
+  message:
+    aliases: [msg , w , whisper , pm]
+    description: Send a message.
