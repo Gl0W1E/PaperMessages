@@ -1,0 +1,4 @@
+name: McMessages
+version: '${project.version}'
+main: net.euromc.mcmessages.McMessages
+api-version: '1.19'
