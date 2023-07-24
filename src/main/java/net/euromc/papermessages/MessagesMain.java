@@ -16,7 +16,7 @@ public final class MessagesMain extends JavaPlugin {
     public void onEnable() {
         instance = this;
         Settings.loadConfig();
-        getCommand("message").
+        getCommand("message").setExecutor(new MessageCommand());
         getCommand("reply").setExecutor(new ReplyCommand());
     }
 
