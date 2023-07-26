@@ -32,4 +32,9 @@ public final class PaperMessages extends JavaPlugin {
     {
         return instance;
     }
+
+    public String getVersion()
+    {
+        return instance.getPluginMeta().getVersion();
+    }
 }
