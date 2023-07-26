@@ -1,14 +1,25 @@
-package net.euromc.papermessages.settings;
+package net.mvndicraft.papermessages.settings;
 
 public enum ConfigNodes {
     VERSION(
             "version",
             "",
-            "# Current version number. DO NOT EDIT!"),
+            "# This is the current version. Please do not edit."),
     SETTINGS("settings","",""),
-    SETTINGS_PLUGIN_PREFIX("settings.plugin_prefix", "§1§e§lMESSAGE§1]§r ", "", "# Use the ''§'' Symbol instead of ''§'' For colors."),
-    SETTINGS_MESSAGE_FORMAT_SENT("settings.message_format_sent", "§4to §9[PLAYER] §f>> §7[MESSAGE]", "", "# The text [PLAYER] will be replaced with the receiver's name.", "# The text [MESSAGE] will be replaced with the message content."),
-    SETTINGS_MESSAGE_FORMAT_RECEIVED("settings.message_format_received", "§4to §9[PLAYER] §f>> §7[MESSAGE]", "", "# The text [PLAYER] will be replaced with the sender's name.", "# The text [MESSAGE] will be replaced with the message content.");
+    SETTINGS_PLUGIN_PREFIX(
+            "settings.plugin_prefix",
+            "&6&l[&f&lPM&6&l] ",
+            ""),
+    SETTINGS_MESSAGE_FORMAT_SENT(
+            "settings.message_format_sent",
+            "&cto &b%s&f: &6%s",
+            "",
+            "# The first %s is the recipient name the second %s is the message content."),
+    SETTINGS_MESSAGE_FORMAT_RECEIVED(
+            "settings.message_format_received",
+            "&afrom &b%s&f: &6%s",
+            "",
+            "# The first %s is the sender name the second %s is the message content.");
 
     private final String Root;
     private final String Default;

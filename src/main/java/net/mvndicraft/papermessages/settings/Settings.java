@@ -1,7 +1,7 @@
-package net.euromc.papermessages.settings;
+package net.mvndicraft.papermessages.settings;
 
 import io.github.townyadvanced.commentedconfiguration.CommentedConfiguration;
-import net.euromc.papermessages.MessagesMain;
+import net.mvndicraft.papermessages.PaperMessages;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,14 +11,14 @@ public class Settings {
     private static CommentedConfiguration config, newConfig;
 
     public static void loadConfig() {
-        final Path path = MessagesMain.instance.getDataFolder().toPath().resolve("config.yml");
+        final Path path = PaperMessages.instance.getDataFolder().toPath().resolve("config.yml");
 
         if (!Files.exists(path)) {
             try {
                 Files.createDirectories(path.getParent());
                 Files.createFile(path);
             } catch (IOException e) {
-                MessagesMain.instance.getLogger().warning("Failed to create config.yml!");
+                PaperMessages.instance.getLogger().warning("Failed to create config.yml!");
                 e.printStackTrace();
             }
         }
@@ -26,7 +26,7 @@ public class Settings {
         // read the config.yml into memory
         config = new CommentedConfiguration(path);
         if (!config.load())
-            MessagesMain.instance.getLogger().warning("Failed to load config.yml!");
+            PaperMessages.instance.getLogger().warning("Failed to load config.yml!");
 
         setDefaults(path);
         config.save();
@@ -60,7 +60,7 @@ public class Settings {
                 addComment(root.getRoot(), root.getComments());
 
             if (root == ConfigNodes.VERSION)
-                setNewProperty(root.getRoot(), MessagesMain.instance.getVersion());
+                setNewProperty(root.getRoot(), PaperMessages.instance.getVersion());
             else
                 setNewProperty(root.getRoot(), (config.get(root.getRoot().toLowerCase()) != null) ? config.get(root.getRoot().toLowerCase()) : root.getDefault());
         }
@@ -73,7 +73,7 @@ public class Settings {
         String data = config.getString(root.toLowerCase(), def);
 
         if (data == null) {
-            MessagesMain.instance.getLogger().warning("Failed to read " + root.toLowerCase() + " from config.yml");
+            PaperMessages.instance.getLogger().warning("Failed to read " + root.toLowerCase() + " from config.yml");
             return "";
         }
 
@@ -88,7 +88,7 @@ public class Settings {
         try {
             return Double.parseDouble(config.getString(node.getRoot().toLowerCase(), node.getDefault()).trim());
         } catch (NumberFormatException e) {
-            MessagesMain.instance.getLogger().warning("Failed to read " + node.getRoot().toLowerCase() + " from config.yml");
+            PaperMessages.instance.getLogger().warning("Failed to read " + node.getRoot().toLowerCase() + " from config.yml");
             return 0.0;
         }
     }
@@ -97,7 +97,7 @@ public class Settings {
         try {
             return Integer.parseInt(config.getString(node.getRoot().toLowerCase(), node.getDefault()).trim());
         } catch (NumberFormatException e) {
-            MessagesMain.instance.getLogger().warning("Failed to read " + node.getRoot().toLowerCase() + " from config.yml");
+            PaperMessages.instance.getLogger().warning("Failed to read " + node.getRoot().toLowerCase() + " from config.yml");
             return 0;
         }
     }

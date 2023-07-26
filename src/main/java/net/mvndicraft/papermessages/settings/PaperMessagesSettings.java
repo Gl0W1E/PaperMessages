@@ -1,6 +1,6 @@
-package net.euromc.papermessages.settings;
+package net.mvndicraft.papermessages.settings;
 
-public class PaperMsgSettings {
+public class PaperMessagesSettings {
 
     public static String getPrefix() {
         return Settings.getString(ConfigNodes.SETTINGS_PLUGIN_PREFIX);
