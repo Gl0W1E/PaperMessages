@@ -10,7 +10,7 @@ public class MessagingUtil {
     public static void processMessage(Player sender, Player receiver, String content)
     {
 
-        String prefix = PaperMessagesSettings.getPrefix();
+        String prefix = LegacyComponentSerializer.legacyAmpersand().deserialize(PaperMessagesSettings.getPrefix());
         Component sentMsg = LegacyComponentSerializer.legacyAmpersand().deserialize(prefix + String.format(PaperMessagesSettings.getSentMessageFormat(), receiver.getName(), content));
         Component receivedMsg = LegacyComponentSerializer.legacyAmpersand().deserialize(prefix + String.format(PaperMessagesSettings.getReceivedMessageFormat(), sender.getName(), content));
 
