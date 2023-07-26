@@ -1,6 +1,7 @@
 package net.mvndicraft.papermessages.util;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.mvndicraft.papermessages.settings.PaperMessagesSettings;
 import org.bukkit.entity.Player;
@@ -10,7 +11,7 @@ public class MessagingUtil {
     public static void processMessage(Player sender, Player receiver, String content)
     {
 
-        String prefix = LegacyComponentSerializer.legacyAmpersand().deserialize(PaperMessagesSettings.getPrefix());
+        TextComponent prefix = LegacyComponentSerializer.legacyAmpersand().deserialize(PaperMessagesSettings.getPrefix());
         Component sentMsg = LegacyComponentSerializer.legacyAmpersand().deserialize(prefix + String.format(PaperMessagesSettings.getSentMessageFormat(), receiver.getName(), content));
         Component receivedMsg = LegacyComponentSerializer.legacyAmpersand().deserialize(prefix + String.format(PaperMessagesSettings.getReceivedMessageFormat(), sender.getName(), content));
 
