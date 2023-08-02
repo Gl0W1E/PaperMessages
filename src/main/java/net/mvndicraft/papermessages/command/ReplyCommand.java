@@ -28,7 +28,7 @@ public class ReplyCommand extends BaseCommand
         Player recipient =  HashUtil.getLastMessaged(player).getPlayer();
 
         if (recipient == null) {
-            player.sendMessage(Component.text(""));
+            player.sendMessage(Component.text("§f§lThis player is offline."));
             return;
         }
 

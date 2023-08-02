@@ -1,6 +1,7 @@
 package net.mvndicraft.papermessages;
 
 import co.aikar.commands.PaperCommandManager;
+import net.mvndicraft.papermessages.command.IgnoreCommand;
 import net.mvndicraft.papermessages.command.MessageCommand;
 import net.mvndicraft.papermessages.command.PaperMessagesCommand;
 import net.mvndicraft.papermessages.command.ReplyCommand;
@@ -16,6 +17,7 @@ public final class PaperMessages extends JavaPlugin {
 
         Settings.loadConfig();
         PaperCommandManager manager = new PaperCommandManager(instance);
+        manager.registerCommand(new IgnoreCommand());
         manager.registerCommand(new PaperMessagesCommand());
         manager.registerCommand(new MessageCommand());
         manager.registerCommand(new ReplyCommand());
